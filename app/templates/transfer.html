@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer - TFT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-secondary font-inter">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-card border-r border-border shadow-sm flex flex-col">
+            <!-- Logo/Header -->
+            <div class="p-6 border-b border-border">
+                <div class="flex items-center gap-3">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TFT Logo" class="w-10 h-10">
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary">TFT</h1>
+                        <p class="text-xs text-muted-foreground">Trolley Form System</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <a href="/" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Trolley Form</span>
+                </a>
+
+                <a href="process.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Connection</span>
+                </a>
+
+                <a href="transfer.html" class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Transfer</span>
+                </a>
+
+                <a href="barcode.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Barcode Info</span>
+                </a>
+
+                <a href="history.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">History</span>
+                </a>
+
+                <a href="users.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">User Data</span>
+                </a>
+
+                <a href="settings.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-border">
+                <button class="flex items-center gap-3 px-4 py-3 rounded-lg w-full text-foreground hover:bg-sidebar-accent transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto">
+            <div class="min-h-screen bg-secondary p-8">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold text-foreground mb-2">Process Transfer</h1>
+                        <p class="text-muted-foreground">Transfer completed process to output trolley</p>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-900 rounded-lg p-4 mb-6">
+                        <div class="flex gap-3">
+                            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-1">How to Transfer:</p>
+                                <ol class="text-sm text-blue-800 dark:text-blue-200 space-y-1 list-decimal list-inside">
+                                    <li>Scan the Process OUTPUT barcode (e.g., PR-01-out)</li>
+                                    <li>Scan the destination Trolley barcode (e.g., TR-02)</li>
+                                    <li>Click Transfer to complete the process</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Card -->
+                    <div class="bg-card rounded-lg border border-border p-8 shadow-sm">
+                        <!-- Scan Buttons Section -->
+                        <div class="space-y-6 mb-8">
+                            <!-- Process Output Barcode Scan -->
+                            <div class="space-y-3">
+                                <label class="block text-sm font-semibold text-foreground">
+                                    Process Output Barcode (PR-XX-out)
+                                </label>
+                                <button id="scanProcessBtn" class="btn btn-primary w-full flex items-center justify-center gap-3 px-6 py-4 text-base">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path>
+                                    </svg>
+                                    Scan Process Output Barcode
+                                </button>
+                                <div id="processBarcodeDisplay" class="hidden mt-3 p-4 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-900">
+                                    <p class="text-sm text-muted-foreground mb-1">Scanned Process Barcode:</p>
+                                    <p id="processBarcodeText" class="text-lg font-bold text-green-700 dark:text-green-300"></p>
+                                </div>
+                            </div>
+
+                            <!-- Trolley Barcode Scan -->
+                            <div class="space-y-3">
+                                <label class="block text-sm font-semibold text-foreground">
+                                    Destination Trolley Barcode (TR-XX)
+                                </label>
+                                <button id="scanTrolleyBtn" class="btn btn-primary w-full flex items-center justify-center gap-3 px-6 py-4 text-base">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path>
+                                    </svg>
+                                    Scan Trolley Barcode
+                                </button>
+                                <div id="trolleyBarcodeDisplay" class="hidden mt-3 p-4 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-900">
+                                    <p class="text-sm text-muted-foreground mb-1">Scanned Trolley Barcode:</p>
+                                    <p id="trolleyBarcodeText" class="text-lg font-bold text-green-700 dark:text-green-300"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex gap-4">
+                            <button id="transferBtn" disabled class="btn btn-success flex-1 px-6 py-4 text-base font-semibold opacity-50 cursor-not-allowed">
+                                <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                </svg>
+                                Transfer to Trolley
+                            </button>
+                            <button id="resetBtn" class="btn btn-secondary px-6 py-4 text-base font-semibold">
+                                <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                                Reset
+                            </button>
+                        </div>
+
+                        <!-- Transfer Status -->
+                        <div id="transferStatus" class="hidden mt-6 p-6 rounded-lg border">
+                            <div class="flex items-start gap-4">
+                                <svg id="statusIcon" class="w-12 h-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+                                <div class="flex-1">
+                                    <h3 id="statusTitle" class="text-lg font-bold mb-2"></h3>
+                                    <p id="statusMessage" class="text-sm"></p>
+                                    <div id="transferDetails" class="mt-4 p-4 bg-secondary rounded-lg hidden">
+                                        <div class="grid grid-cols-2 gap-4 text-sm">
+                                            <div>
+                                                <p class="text-muted-foreground mb-1">Input Trolley</p>
+                                                <p id="inputTrolley" class="font-semibold"></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-muted-foreground mb-1">Output Trolley</p>
+                                                <p id="outputTrolley" class="font-semibold"></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-muted-foreground mb-1">Process Duration</p>
+                                                <p id="processDuration" class="font-semibold"></p>
+                                            </div>
+                                            <div>
+                                                <p class="text-muted-foreground mb-1">Completed At</p>
+                                                <p id="completedAt" class="font-semibold"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-card border border-border rounded-lg shadow-lg p-4 w-96 hidden z-50">
+        <div class="flex items-start gap-3">
+            <svg id="toastIcon" class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+            <div class="flex-1">
+                <h3 id="toastTitle" class="font-semibold text-foreground mb-1"></h3>
+                <p id="toastMessage" class="text-sm text-muted-foreground"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/transfer.js') }}"></script>
+</body>
+</html>

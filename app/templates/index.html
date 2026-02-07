@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFT - Trolley Form System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-secondary font-inter">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-card border-r border-border shadow-sm flex flex-col">
+            <!-- Logo/Header -->
+            <div class="p-6 border-b border-border">
+                <div class="flex items-center gap-3">
+                    <img src="/static/images/logo.png" alt="TFT Logo" class="w-10 h-10">
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary">TFT</h1>
+                        <p class="text-xs text-muted-foreground">Trolley Form System</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <a href="/" class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Trolley Form</span>
+                </a>
+
+                <a href="/process.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Process Connectivity</span>
+                </a>
+
+                <a href="/barcode.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Barcode Info</span>
+                </a>
+
+                <a href="/history.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">History</span>
+                </a>
+
+                <!-- DISABLED UNTIL LOGIN: <a href="/users.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">User Data</span>
+                </a> -->
+
+                <a href="/settings.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-border">
+                <button id="logoutBtn" class="flex items-center gap-3 px-4 py-3 rounded-lg w-full text-foreground hover:bg-sidebar-accent transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-auto">
+            <div class="min-h-screen bg-secondary p-8">
+                <div class="max-w-3xl">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-2">
+                            <h1 class="text-3xl font-bold text-foreground">Trolley Form</h1>
+                            <button type="button" id="scanBarcodeBtn" class="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path>
+                                </svg>
+                                Scan Barcode
+                            </button>
+                        </div>
+                        <p class="text-muted-foreground">Scan trolley barcode first, then enter details and specifications</p>
+                    </div>
+
+                    <!-- Progress Indicator -->
+                    <div class="mb-8 flex items-center gap-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3">
+                                <div id="step1Circle" class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-colors bg-primary text-primary-foreground">
+                                    1
+                                </div>
+                                <span id="step1Text" class="font-medium transition-colors text-foreground">
+                                    Basic Info
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Progress Line -->
+                        <div id="progressLine" class="w-12 h-1 rounded-full transition-colors bg-border"></div>
+
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3">
+                                <div id="step2Circle" class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-colors bg-border text-foreground">
+                                    2
+                                </div>
+                                <span id="step2Text" class="font-medium transition-colors text-muted-foreground">
+                                    Instructions
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Card -->
+                    <div class="bg-card rounded-lg border border-border p-8 shadow-sm">
+                        <form id="trolleyForm">
+                            <!-- Page 1 -->
+                            <div id="page1" class="space-y-8">
+                                <!-- Basic Information -->
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-foreground border-b border-border pb-2">
+                                        Basic Information
+                                    </h3>
+
+                                    <div>
+                                        <label for="customerName" class="block text-sm font-semibold text-foreground mb-2">
+                                            Customer Name
+                                        </label>
+                                        <input type="text" id="customerName" name="customerName" placeholder="Enter customer name" class="form-input">
+                                    </div>
+
+                                    <div>
+                                        <label for="lotNumber" class="block text-sm font-semibold text-foreground mb-2">
+                                            Lot Number
+                                        </label>
+                                        <input type="text" id="lotNumber" name="lotNumber" placeholder="Enter lot number" class="form-input">
+                                    </div>
+
+                                    <div>
+                                        <label for="designName" class="block text-sm font-semibold text-foreground mb-2">
+                                            Design Name
+                                        </label>
+                                        <input type="text" id="designName" name="designName" placeholder="Enter design name" class="form-input">
+                                    </div>
+
+                                    <div>
+                                        <label for="designNumber" class="block text-sm font-semibold text-foreground mb-2">
+                                            Design Number
+                                        </label>
+                                        <input type="text" id="designNumber" name="designNumber" placeholder="Enter design number" class="form-input">
+                                    </div>
+
+                                    <div>
+                                        <label for="packInstructions" class="block text-sm font-semibold text-foreground mb-2">
+                                            Pack Instructions
+                                        </label>
+                                        <textarea id="packInstructions" name="packInstructions" placeholder="Enter pack instructions..." rows="3" class="form-input resize-none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Page 2 -->
+                            <div id="page2" class="space-y-8 hidden">
+                                <!-- Fabric Specifications -->
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-foreground border-b border-border pb-2">
+                                        Fabric Specifications
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="greyWidth" class="block text-sm font-semibold text-foreground mb-2">
+                                                Grey Width
+                                            </label>
+                                            <input type="text" id="greyWidth" name="greyWidth" placeholder="e.g. 150cm" class="form-input">
+                                        </div>
+
+                                        <div>
+                                            <label for="finishWidth" class="block text-sm font-semibold text-foreground mb-2">
+                                                Finish Width
+                                            </label>
+                                            <input type="text" id="finishWidth" name="finishWidth" placeholder="e.g. 145cm" class="form-input">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="quality" class="block text-sm font-semibold text-foreground mb-2">
+                                            Quality
+                                        </label>
+                                        <input type="text" id="quality" name="quality" placeholder="Quality spec" class="form-input">
+                                    </div>
+                                </div>
+
+                                <!-- Additional Information -->
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-foreground border-b border-border pb-2">
+                                        Additional Information
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="totalTrolley" class="block text-sm font-semibold text-foreground mb-2">
+                                                Total Trolley
+                                            </label>
+                                            <div class="relative">
+                                                <input type="text" id="totalTrolley" name="totalTrolley" placeholder="Total meters" class="form-input">
+                                                <span class="absolute right-4 top-2.5 text-sm text-muted-foreground">Meters</span>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label for="matching" class="block text-sm font-semibold text-foreground mb-2">
+                                                Matching
+                                            </label>
+                                            <input type="text" id="matching" name="matching" placeholder="Matching details" class="form-input">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="remarks" class="block text-sm font-semibold text-foreground mb-2">
+                                            Remarks
+                                        </label>
+                                        <textarea id="remarks" name="remarks" placeholder="Any additional remarks..." rows="3" class="form-input resize-none"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Dates -->
+                                <div class="space-y-4">
+                                    <h3 class="text-lg font-semibold text-foreground border-b border-border pb-2">
+                                        Dates
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="orderReceiveDate" class="block text-sm font-semibold text-foreground mb-2">
+                                                Order Receive Date
+                                            </label>
+                                            <input type="date" id="orderReceiveDate" name="orderReceiveDate" class="form-input">
+                                        </div>
+
+                                        <div>
+                                            <label for="greyReceiveDate" class="block text-sm font-semibold text-foreground mb-2">
+                                                Grey Receive Date
+                                            </label>
+                                            <input type="date" id="greyReceiveDate" name="greyReceiveDate" class="form-input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class="flex gap-4 mt-8 pt-8 border-t border-border flex-wrap">
+                                <button type="button" id="backBtn" class="btn-secondary disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                    Back
+                                </button>
+
+                                <button type="button" id="resetBtn" class="btn-secondary">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                    </svg>
+                                    Reset Form
+                                </button>
+
+                                <button type="button" id="nextBtn" class="btn-primary ml-auto">
+                                    Next
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+
+                                <button type="submit" id="submitBtn" class="btn-primary ml-auto hidden">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                                    </svg>
+                                    Save to Database
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-card border border-border rounded-lg shadow-lg p-4 transform translate-y-full transition-transform duration-300 hidden">
+        <div class="flex items-center gap-3">
+            <svg id="toastIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+            <div>
+                <p id="toastTitle" class="font-semibold text-foreground"></p>
+                <p id="toastMessage" class="text-sm text-muted-foreground"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script>
+        // Logout handler for index page
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

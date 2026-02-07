@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TFT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-[#1a1a1a] font-inter">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="bg-[#d9d9d9] rounded-3xl p-8 shadow-2xl">
+                <!-- User Icon -->
+                <div class="flex justify-center mb-8">
+                    <div class="bg-white rounded-full w-32 h-32 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-[#1a3a52]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-center text-sm font-medium text-[#1a3a52] mb-6">User</p>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Role :</label>
+                        <select id="role" class="w-full px-4 py-3 rounded-full bg-white border-none focus:outline-none focus:ring-2 focus:ring-[#1a3a52]">
+                            <option value="">Select Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="operator">Operator</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Name :</label>
+                        <input type="text" id="name" placeholder="Enter your name" class="w-full px-4 py-3 rounded-full bg-white border-none focus:outline-none focus:ring-2 focus:ring-[#1a3a52]">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-black mb-2">Password :</label>
+                        <input type="password" id="password" placeholder="Enter password" class="w-full px-4 py-3 rounded-full bg-white border-none focus:outline-none focus:ring-2 focus:ring-[#1a3a52]">
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2">
+                        <button type="submit" class="bg-[#f4c430] hover:bg-[#e5b520] text-black font-semibold px-12 py-3 rounded-full transition-colors duration-200">
+                            Continue
+                        </button>
+                        <a href="reset-password.html" class="text-sm font-medium text-black hover:underline">
+                            Forget Password
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="mt-4 text-red-600 text-sm text-center hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/auth.js"></script>
+</body>
+</html>

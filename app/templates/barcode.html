@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Info - TFT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-secondary font-inter">
+    <div class="flex h-screen">
+        <!-- Include same sidebar as process.html -->
+        <aside class="w-64 bg-card border-r border-border shadow-sm flex flex-col">
+            <div class="p-6 border-b border-border">
+                <div class="flex items-center gap-3">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TFT Logo" class="w-10 h-10">
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary">TFT</h1>
+                        <p class="text-xs text-muted-foreground">Trolley Form System</p>
+                    </div>
+                </div>
+            </div>
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <a href="/" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="text-sm font-medium">Trolley Form</span>
+                </a>
+                <a href="process.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span class="text-sm font-medium">Process Connectivity</span>
+                </a>
+                <a href="barcode.html" class="nav-item active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path></svg>
+                    <span class="text-sm font-medium">Barcode Info</span>
+                </a>
+                <a href="history.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-sm font-medium">History</span>
+                </a>
+                <a href="users.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span class="text-sm font-medium">User Data</span>
+                </a>
+                <a href="settings.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-border">
+                <button class="flex items-center gap-3 px-4 py-3 rounded-lg w-full text-foreground hover:bg-sidebar-accent transition-colors duration-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    <span class="text-sm font-medium">Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-1 overflow-auto">
+            <div class="min-h-screen bg-secondary p-8">
+                <div class="max-w-5xl mx-auto">
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold text-foreground mb-2">Barcode Information</h1>
+                        <p class="text-muted-foreground">Scan any barcode to view complete information and tracking history</p>
+                    </div>
+
+                    <!-- Scan Section -->
+                    <div class="bg-card rounded-lg border border-border p-8 shadow-sm mb-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-bold text-foreground">Scan Barcode</h2>
+                            <button type="button" id="clearBtn" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                                Clear Results
+                            </button>
+                        </div>
+                        <div class="flex gap-4">
+                            <button type="button" id="scanBtn" class="flex items-center justify-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-sm">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h4v16H3V4zm6 0h2v16H9V4zm4 0h4v16h-4V4zm6 0h2v16h-2V4z"></path>
+                                </svg>
+                                Scan Barcode
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div id="loadingState" class="hidden bg-card rounded-lg border border-border p-8 shadow-sm text-center">
+                        <div class="flex flex-col items-center gap-4">
+                            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+                            <p class="text-muted-foreground">Loading barcode information...</p>
+                        </div>
+                    </div>
+
+                    <!-- No Data State -->
+                    <div id="noDataState" class="hidden bg-card rounded-lg border border-border p-8 shadow-sm text-center">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p class="text-lg font-semibold text-foreground mb-2">No Data Found</p>
+                        <p class="text-muted-foreground">This barcode doesn't have any information yet.</p>
+                    </div>
+
+                    <!-- Results Container -->
+                    <div id="resultsContainer" class="hidden space-y-6">
+                        <!-- Barcode Header -->
+                        <div class="bg-card rounded-lg border border-border p-6 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-muted-foreground mb-1">Scanned Barcode</p>
+                                    <h3 id="scannedBarcodeDisplay" class="text-2xl font-bold text-foreground"></h3>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm text-muted-foreground mb-1">Type</p>
+                                    <span id="barcodeTypeDisplay" class="badge badge-info text-base"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trolley Information (if trolley barcode) -->
+                        <div id="trolleyInfo" class="hidden bg-card rounded-lg border border-border p-6 shadow-sm">
+                            <h3 class="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Trolley Form Parameters
+                            </h3>
+                            <div id="trolleyParameters" class="grid grid-cols-2 gap-4">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Current Process Connection -->
+                        <div id="currentProcessInfo" class="hidden bg-card rounded-lg border border-border p-6 shadow-sm">
+                            <h3 class="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                Current Process Connection
+                            </h3>
+                            <div id="currentProcessDetails" class="space-y-3">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Process Information (if process barcode) -->
+                        <div id="processInfo" class="hidden bg-card rounded-lg border border-border p-6 shadow-sm">
+                            <h3 class="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                </svg>
+                                Process Information
+                            </h3>
+                            <div id="processDetails" class="space-y-4">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Attached Trolleys (for process barcodes) -->
+                        <div id="attachedTrolleys" class="hidden bg-card rounded-lg border border-border p-6 shadow-sm">
+                            <h3 class="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                </svg>
+                                Attached Trolley Information
+                            </h3>
+                            <div id="attachedTrolleyDetails">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Process History Timeline -->
+                        <div id="processHistory" class="hidden bg-card rounded-lg border border-border p-6 shadow-sm">
+                            <h3 class="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Process History Timeline
+                            </h3>
+                            <div id="historyTimeline" class="space-y-4">
+                                <!-- Dynamic timeline will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Information Guide -->
+                    <div class="mt-6 bg-blue-50 dark:bg-blue-950 rounded-lg border border-blue-200 dark:border-blue-900 p-6">
+                        <div class="flex gap-3">
+                            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-blue-900 dark:text-blue-100 mb-2">Information Flow:</h3>
+                                <ul class="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                                    <li><strong>Trolley Barcode:</strong> Shows all trolley form parameters, customer info, and current process connection</li>
+                                    <li><strong>Process Barcode:</strong> Shows attached trolley information, process timing, and complete history</li>
+                                    <li><strong>Data Transfer:</strong> When connected, trolley data moves to process, then to output, creating a complete tracking chain</li>
+                                    <li><strong>History Tracking:</strong> Complete timeline of all processes the fabric has gone through</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-card border border-border rounded-lg shadow-lg p-4 transform translate-y-full transition-transform duration-300 hidden">
+        <div class="flex items-center gap-3">
+            <svg id="toastIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+            <div>
+                <p id="toastTitle" class="font-semibold text-foreground"></p>
+                <p id="toastMessage" class="text-sm text-muted-foreground"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/barcode.js') }}"></script>
+</body>
+</html>

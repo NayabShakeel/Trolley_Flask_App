@@ -1,0 +1,288 @@
+/* Custom CSS Variables */
+:root {
+    --background: 210 13.3% 95.5%;
+    --foreground: 218 33% 9.3%;
+    --card: 0 0% 100%;
+    --card-foreground: 218 33% 9.3%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 33% 9.3%;
+    --primary: 224.3 75% 56.7%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 13.3% 95.5%;
+    --secondary-foreground: 224.3 75% 56.7%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 224.3 75% 56.7%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 13.3% 90%;
+    --input: 210 13.3% 96%;
+    --ring: 224.3 75% 56.7%;
+    --sidebar-accent: 210 13.3% 95.5%;
+    --sidebar-accent-foreground: 224.3 75% 56.7%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Tailwind Classes */
+.bg-secondary {
+    background-color: hsl(var(--secondary));
+}
+
+.bg-card {
+    background-color: hsl(var(--card));
+}
+
+.bg-primary {
+    background-color: hsl(var(--primary));
+}
+
+.text-foreground {
+    color: hsl(var(--foreground));
+}
+
+.text-primary {
+    color: hsl(var(--primary));
+}
+
+.text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+}
+
+.text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+}
+
+.border-border {
+    border-color: hsl(var(--border));
+}
+
+.bg-sidebar-accent {
+    background-color: hsl(var(--sidebar-accent));
+}
+
+/* Navigation Items */
+.nav-item {
+    color: hsl(var(--foreground));
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    background-color: hsl(var(--sidebar-accent));
+}
+
+.nav-item.active {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+}
+
+/* Form Input Styles */
+.form-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--input));
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: all 0.2s;
+}
+
+.form-input::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsla(var(--primary), 0.1);
+}
+
+/* Button Styles */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    background-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(var(--border));
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: hsl(var(--card));
+}
+
+thead {
+    background-color: hsl(var(--muted));
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+}
+
+tr:hover {
+    background-color: hsl(var(--muted));
+}
+
+/* Toast Animation */
+#toast.show {
+    display: block;
+    transform: translateY(0);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+}
+
+/* Card Styles */
+.card {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-success {
+    background-color: #10b981;
+    color: white;
+}
+
+.badge-warning {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.badge-danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.badge-info {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid hsl(var(--border));
+    border-top-color: hsl(var(--primary));
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    aside {
+        width: 100%;
+        position: fixed;
+        height: auto;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    main {
+        padding-bottom: 80px;
+    }
+
+    nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+}
